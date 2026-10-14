@@ -8,7 +8,7 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+/*class Solution {
 public:
 
     ListNode* reverse(ListNode* head)
@@ -53,4 +53,36 @@ public:
         return true;
 
     }
+}; */
+
+class Solution {
+public:
+bool isPalindrome(ListNode* head)
+{
+    vector<int> arr;
+    ListNode* temp=head;
+
+    while(temp!=NULL)
+    {
+        arr.push_back(temp->val);
+        temp=temp->next;
+    }
+
+    int first=0;
+    int last=arr.size()-1;
+
+    while(first<=last)
+    {
+       if(arr[first]!=arr[last])
+       {
+        return false;
+       }
+       else
+       {
+        first++;
+        last--;
+       }
+    }
+    return true;
+}
 };
